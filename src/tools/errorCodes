@@ -1,0 +1,6 @@
+CODE TYPE		 	NAME					HEAD						MESSAGE
+#1	|ERR		|invlaid_path		|Speichern fehlgeschlagen!	|Bitte einen Pfad auswählen.
+#2	|ERR		|file_exists		|Speichern fehlgeschlagen!	|Datei existiert bereits.
+#3	|WARN		|file_exists		|_							|Datei existiert bereits.				
+#4	|INFO		|success			|Erfolgreich!				|Alles funktioniert.
+#5	|CONF		|save?				|_							|Speichern?		

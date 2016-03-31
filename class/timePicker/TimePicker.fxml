@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<fx:root alignment="CENTER" type="javafx.scene.layout.HBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">   
+         <children>
+	<VBox alignment="CENTER">
+		<children>
+			<Button fx:id="buttonHoursUp" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="^">
+				<font>
+					<Font size="5.0" />
+				</font>
+			</Button>
+			<Label fx:id="labelHours" text="23">
+				<font>
+					<Font name="System Bold" size="13.0" />
+				</font>
+			</Label>
+			<Button fx:id="buttonHoursDown" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="y">
+				<font>
+					<Font size="5.0" />
+				</font>
+			</Button>
+		</children>
+	</VBox>
+	<Label text=":">
+		<font>
+			<Font name="System Bold" size="14.0" />
+		</font>
+	</Label>
+	<VBox alignment="CENTER">
+		<children>
+			<Button fx:id="buttonMinutesUp" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="^">
+				<font>
+					<Font size="5.0" />
+				</font>
+			</Button>
+			<Label fx:id="labelMinutes" text="11">
+				<font>
+					<Font name="System Bold" size="14.0" />
+				</font>
+			</Label>
+			<Button fx:id="buttonMinutesDown" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="y">
+				<font>
+					<Font size="5.0" />
+				</font>
+			</Button>
+		</children>
+	</VBox>
+	<Label text=":">
+		<font>
+			<Font name="System Bold" size="14.0" />
+		</font>
+	</Label>
+	<VBox alignment="CENTER">
+		<children>
+			<Button fx:id="buttonSecondsUp" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="^">
+				<font>
+					<Font size="5.0" />
+				</font>
+			</Button>
+			<Label fx:id="labelSeconds" text="54">
+				<font>
+					<Font name="System Bold" size="14.0" />
+				</font>
+			</Label>
+			<Button fx:id="buttonSecondsDown" mnemonicParsing="false" prefHeight="10.0" prefWidth="10.0" text="y">
+				<font>
+					<Font size="5.0" />
+				</font>
+			</Button>
+		</children>
+	</VBox>
+</children>
+</fx:root>
