@@ -7,6 +7,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Worker für das Ausführen von Anweisungen auf anderen Threads
+ * @author Robert *
+ */
 public class Worker
 {
 	private static ExecutorService executorService;
@@ -59,6 +63,11 @@ public class Worker
 		};
 	}
 
+	/**
+	 * führt die Anweisungen in anderen Threads aus
+	 * @param runnable
+	 * @return
+	 */
 	public static Future<Void> runLater(Runnable runnable)
 	{
 		if(executorService == null)
@@ -69,6 +78,9 @@ public class Worker
 		return future;
 	}
 
+	/**
+	 * beendet den Worker
+	 */
 	public static void shutdown()
 	{
 		executorService.shutdown();

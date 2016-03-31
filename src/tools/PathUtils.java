@@ -6,6 +6,11 @@ import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * Stellt Methoden zur Arbeit mit Pfaden zur Verfügung
+ * @author Robert
+ *
+ */
 public class PathUtils
 {
 	/**

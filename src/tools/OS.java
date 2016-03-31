@@ -1,5 +1,10 @@
 package tools;
 
+/**
+ * Stellt Methoden zur Arbeit in Abhängigkeit vom Betriebssystem zur Verfügung
+ * @author Robert
+ *
+ */
 public class OS
 {
 	public enum OSType
@@ -8,7 +13,7 @@ public class OS
 	}
 
 	private static OSType type;
-
+	
 	static
 	{
 		if(System.getProperty("os.name").contains("Windows"))
@@ -29,6 +34,10 @@ public class OS
 		}
 	}
 
+	/**
+	 * gibt den Typ des aktuellen Betriebssystems zurück
+	 * @return
+	 */
 	public static OSType getType()
 	{
 		return type;
