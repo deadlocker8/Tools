@@ -14,6 +14,6 @@ public class Regex
 	 */
 	public static boolean isValidEmail(String mail)
 	{
-		return mail.matches("^[a-zA-Z0-9-.]+@[a-zA-Z0-9-.]{1,20}.[a-zA-Z]{2,4}$");
+		return mail.matches("^[a-zA-Z0-9-._]+@[a-zA-Z0-9-._]{1,20}.[a-zA-Z]{2,8}$");
 	}
 }
