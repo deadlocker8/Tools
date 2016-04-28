@@ -28,7 +28,7 @@ import javafx.util.Duration;
  *
  */
 public class Notification
-{
+{	
 	public ArrayList<Rectangle> rects = new ArrayList<Rectangle>();
 	private int notificationWidth = 350;
 	private int notificationHeight = 120;
