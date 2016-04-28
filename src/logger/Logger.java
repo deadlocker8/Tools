@@ -83,24 +83,15 @@ public class Logger
 		
 		try
 		{
-			BufferedWriter out;
-			if(savePath.exists())
-			{            	
-            	out = new BufferedWriter(new FileWriter(savePath, true));
-			}
-			else
-			{				
-				savePath.createNewFile();
-				out = new BufferedWriter(new FileWriter(savePath, true));			  
-			}
+			BufferedWriter out = new BufferedWriter(new FileWriter(savePath, true));
             out.write(logMessage);
-            out.newLine();
-            out.close();
+            out.newLine();          
+            out.close();         
 		}
 		catch(Exception e)
-		{
-			fileOutput = false;
-			createLogMessage(LogLevel.ERROR, "Can't log to file " + savePath + " fileOutput now disabled!");
+		{		
+			fileOutput = false;			
+			logErrorToConsole(createLogMessage(LogLevel.ERROR, "Can't log to file " + savePath + " FILEOUTPUT NOW DISABLED!"));
 		}    
 	}
 
