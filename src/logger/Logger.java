@@ -114,5 +114,5 @@ public class Logger
 	public static void deleteLogfile()
 	{
 		savePath.delete();
-	}
+	}	
 }
