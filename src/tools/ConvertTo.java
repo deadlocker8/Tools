@@ -41,6 +41,19 @@ public class ConvertTo
 	}
 	
 	/**
+	 * Konvertiert Sekunden in Minuten und Sekunden
+	 * @param seconds long - Sekunden
+	 * @return String - Minuten + Sekunden
+	 */
+	public static String ConvertMillisToMinutesAndSeconds(long millis)
+	{		
+		long sek = (millis / 1000) % 60;		
+		long min = (millis / 1000) / 60;
+		
+		return min + ":" + String.format("%02d", sek);
+	}
+	
+	/**
 	 * Konvertiert Millisekunden in Datum und Uhrzeit
 	 * @param millis long - Millisekunden
 	 * @return String - dd.MM.yyyy-hh:mm:ss.SSS

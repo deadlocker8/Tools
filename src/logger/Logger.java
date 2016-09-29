@@ -3,6 +3,8 @@ package logger;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 
 import tools.PathUtils;
@@ -115,4 +117,12 @@ public class Logger
 	{
 		savePath.delete();
 	}	
+	
+	public static String exceptionToString(Exception e)
+	{
+		StringWriter sw = new StringWriter();
+		PrintWriter pw = new PrintWriter(sw);
+		e.printStackTrace(pw);
+		return sw.toString();
+	}
 }
