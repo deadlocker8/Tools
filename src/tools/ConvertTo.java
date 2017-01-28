@@ -5,6 +5,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javafx.scene.paint.Color;
+
 /**
  * stellt Methoden zur Konvertierung von Einheiten zur Verfügung
  * @author Robert
@@ -111,5 +113,10 @@ public class ConvertTo
 			long mega = (bytes/  1048576)  %  1048576;
 			
 			return mega + " MB " + kilo + " KB " + normal;
-	}		
+	}	
+	
+	public static String toRGBHex(Color color)
+	{		
+		return String.format("#%02X%02X%02X%02X", (int)(color.getRed() * 255), (int)(color.getGreen() * 255), (int)(color.getBlue() * 255), (int)(color.getOpacity()* 255));
+	}
 }

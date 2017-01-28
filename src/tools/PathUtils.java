@@ -29,16 +29,16 @@ public class PathUtils
 	 * gibt den Pfad zum "Appdata"-Ordner des jeweiligen aktuellen an
 	 * @return String - OS unabhängiger Pfad
 	 */
-	public static Path getOSindependentPath()
+	public static String getOSindependentPath()
 	{
 		switch(OS.getType())
 		{
 			case Windows:
-				return Paths.get(System.getenv("APPDATA"));
+				return Paths.get(System.getenv("APPDATA")).toAbsolutePath() + "/";
 			case MacOSX:
-				return Paths.get(System.getProperty("user.home"), "Library/Application Support/");
+				return Paths.get(System.getProperty("user.home"), "Library/Application Support/") .toAbsolutePath() + "/.";
 			case Linux:
-				return Paths.get(System.getProperty("user.home"));
+				return Paths.get(System.getProperty("user.home")).toAbsolutePath() + "/.";
 			default:
 				return null;
 		}
