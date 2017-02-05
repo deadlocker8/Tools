@@ -13,9 +13,9 @@ import tools.Worker;
 
 public class Controller
 {
-	public Stage stage;
-	public Image icon = new Image("application/icon.png");
-	public final ResourceBundle bundle = ResourceBundle.getBundle("application/", Locale.GERMANY);
+	private Stage stage;
+	private Image icon = new Image("application/icon.png");
+	private final ResourceBundle bundle = ResourceBundle.getBundle("application/", Locale.GERMANY);
 	
 	public void init(Stage stage)
 	{
