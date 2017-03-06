@@ -32,7 +32,7 @@ public class Main extends Application
 		}
 		catch(Exception e)
 		{
-			Logger.log(LogLevel.ERROR, Logger.exceptionToString(e));
+			Logger.error(e);
 		}
 	}
 

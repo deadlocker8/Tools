@@ -28,7 +28,7 @@ public class Main extends Application
 			FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("controller/GUI.fxml"));
 			Parent root = (Parent)loader.load();
 
-			Scene scene = new Scene(root, 800, 600);		
+			Scene scene = new Scene(root, 800, 600);
 
 			((Controller)loader.getController()).init(stage);
 
@@ -50,7 +50,7 @@ public class Main extends Application
 		}
 		catch(Exception e)
 		{
-			Logger.log(LogLevel.ERROR, Logger.exceptionToString(e));
+			Logger.error(e);
 		}
 	}
 
@@ -59,7 +59,7 @@ public class Main extends Application
 		if(Arrays.asList(args).contains("debug"))
 		{
 			Logger.setLevel(LogLevel.ALL);
-			Logger.log(LogLevel.INFO, "Running in Debug Mode");
+			Logger.info("Running in Debug Mode");
 		}
 		else
 		{
@@ -71,8 +71,8 @@ public class Main extends Application
 			ResourceBundle bundle = ResourceBundle.getBundle("application/", Locale.GERMANY);
 			PathUtils.checkFolder(new File(PathUtils.getOSindependentPath() + "/Deadlocker/" + bundle.getString("app.name") + "/"));
 			Logger.enableFileOutput(new File(PathUtils.getOSindependentPath() + "/Deadlocker/" + bundle.getString("app.name") + "/error.log"));
-			Logger.log(LogLevel.INFO, "File output enabled (" + PathUtils.getOSindependentPath().toString().replace("\\", "/") + "/Deadlocker/" + bundle.getString("app.name") + "/error.log)");
-			Logger.log(LogLevel.INFO, bundle.getString("app.name") + " - v" + bundle.getString("version.name") + " - (versioncode: " + bundle.getString("version.code") + ") from " + bundle.getString("version.date"));
+			Logger.info("File output enabled (" + PathUtils.getOSindependentPath().toString().replace("\\", "/") + "/Deadlocker/" + bundle.getString("app.name") + "/error.log)");
+			Logger.appInfo(bundle.getString("app.name"), bundle.getString("version.name"), bundle.getString("version.code"), bundle.getString("version.date"));
 		}
 		catch(Exception e)
 		{

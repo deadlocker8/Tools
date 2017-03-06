@@ -21,7 +21,37 @@ public class Logger
 	public static boolean fileOutput;
 	public static File savePath;
 	
-	public static void log(LogLevel logLevel, String message)
+	public static void appInfo(String appName, String versionName, String versionCode, String versionDate)
+	{
+		log(LogLevel.INFO, appName + " - v" + versionName + " - (versioncode: " + versionCode + ") from " + versionDate + ")");
+	}
+	
+	public static void info(String message)
+	{
+		log(LogLevel.INFO, message);
+	}
+	
+	public static void debug(String message)
+	{
+		log(LogLevel.DEBUG, message);
+	}
+	
+	public static void warning(String message)
+	{
+		log(LogLevel.WARNING, message);
+	}
+	
+	public static void error(String message)
+	{
+		log(LogLevel.ERROR, message);
+	}
+	
+	public static void error(Exception exception)
+	{
+		log(LogLevel.ERROR, getStringFromException(exception));
+	}
+		
+	private static void log(LogLevel logLevel, String message)
 	{		
 		if(level == null)
 		{
@@ -31,34 +61,43 @@ public class Logger
 		
 		switch(logLevel)
 		{
-			case INFO:	if(level.equals(LogLevel.ALL) || level.equals(LogLevel.INFO) || level.equals(LogLevel.NORMAL))	
-						{
-							logToConsole(logMessage);
-							if(fileOutput)
+			case INFO:		if(level.equals(LogLevel.ALL) || level.equals(LogLevel.INFO) || level.equals(LogLevel.NORMAL))	
 							{
-								logToFile(logMessage);
+								logToConsole(logMessage);
+								if(fileOutput)
+								{
+									logToFile(logMessage);
+								}
 							}
-						}
-						break;
-			case DEBUG:	if(level.equals(LogLevel.ALL) || level.equals(LogLevel.DEBUG))	
-						{
-							logToConsole(logMessage);
-							if(fileOutput)
+							break;
+			case DEBUG:		if(level.equals(LogLevel.ALL) || level.equals(LogLevel.DEBUG))	
 							{
-								logToFile(logMessage);
+								logToConsole(logMessage);
+								if(fileOutput)
+								{
+									logToFile(logMessage);
+								}
 							}
-						}
-						break;		
-			case ERROR:	if(level.equals(LogLevel.ALL) || level.equals(LogLevel.ERROR) || level.equals(LogLevel.NORMAL))	
-						{
-							logErrorToConsole(logMessage);
-							if(fileOutput)
+							break;		
+			case WARNING:	if(level.equals(LogLevel.ALL) || level.equals(LogLevel.WARNING) || level.equals(LogLevel.NORMAL))	
 							{
-								logToFile(logMessage);
+								logToConsole(logMessage);
+								if(fileOutput)
+								{
+									logToFile(logMessage);
+								}
 							}
-						}
-						break;	
-			default:	break;							
+							break;		
+			case ERROR:		if(level.equals(LogLevel.ALL) || level.equals(LogLevel.ERROR) || level.equals(LogLevel.NORMAL))	
+							{
+								logErrorToConsole(logMessage);
+								if(fileOutput)
+								{
+									logToFile(logMessage);
+								}
+							}
+							break;	
+			default:		break;							
 		}	
 	}
 	
@@ -118,7 +157,7 @@ public class Logger
 		savePath.delete();
 	}	
 	
-	public static String exceptionToString(Exception e)
+	private static String getStringFromException(Exception e)
 	{
 		StringWriter sw = new StringWriter();
 		PrintWriter pw = new PrintWriter(sw);
