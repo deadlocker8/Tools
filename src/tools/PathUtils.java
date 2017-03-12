@@ -7,14 +7,14 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 /**
- * Stellt Methoden zur Arbeit mit Pfaden zur Verfügung
+ * Stellt Methoden zur Arbeit mit Pfaden zur VerfÃ¼gung
  * @author Robert
  *
  */
 public class PathUtils
 {
 	/**
-	 * prüft ob der Ordner existiert und legt ihn an falls nicht
+	 * prÃ¼ft ob der Ordner existiert und legt ihn an falls nicht
 	 * @param file
 	 */
 	public static void checkFolder(File file)
@@ -26,8 +26,8 @@ public class PathUtils
 	}
 	
 	/**
-	 * gibt den Pfad zum "Appdata"-Ordner des jeweiligen aktuellen an
-	 * @return String - OS unabhängiger Pfad
+	 * gibt den Pfad zum "Appdata"-Ordner des jeweiligen aktuellen Nutzers an
+	 * @return String - OS unabhÃ¤ngiger Pfad
 	 */
 	public static String getOSindependentPath()
 	{
@@ -45,7 +45,7 @@ public class PathUtils
 	}
 	
 	/**
-	 * gibt den Ordner zurück, in dem sich die aktuell ausgeführte jar befindet
+	 * gibt den Ordner zurÃ¼ck, in dem sich die aktuell ausgefÃ¼hrte jar befindet
 	 * @return Path - Ordner
 	 * @throws URISyntaxException
 	 */
@@ -55,7 +55,7 @@ public class PathUtils
 	}
 	
 	/**
-	 * öffnet ein Explorerfenster und selektiert die angegebene Datei
+	 * Ã¶ffnet ein Explorerfenster und selektiert die angegebene Datei
 	 * @param path - Pfad zur Datei
 	 * @throws IOException
 	 */
