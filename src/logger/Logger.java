@@ -103,7 +103,7 @@ public class Logger
 	
 	private static String createLogMessage(LogLevel logLevel, String message)
 	{
-		StackTraceElement element = Thread.currentThread().getStackTrace()[3];
+		StackTraceElement element = Thread.currentThread().getStackTrace()[4];
 		
 		return "[" + logLevel + "] - " + format.format(System.currentTimeMillis()) + " - " + element.getClassName() + "." + element.getMethodName() + ":" + element.getLineNumber() + "  -  " + message;
 	}
