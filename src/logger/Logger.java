@@ -59,46 +59,22 @@ public class Logger
 		}
 		String logMessage = createLogMessage(logLevel, message);
 		
-		switch(logLevel)
+		if(level.getLevel() >= logLevel.getLevel())	
 		{
-			case INFO:		if(level.equals(LogLevel.ALL) || level.equals(LogLevel.INFO) || level.equals(LogLevel.NORMAL))	
-							{
-								logToConsole(logMessage);
-								if(fileOutput)
-								{
-									logToFile(logMessage);
-								}
-							}
-							break;
-			case DEBUG:		if(level.equals(LogLevel.ALL) || level.equals(LogLevel.DEBUG))	
-							{
-								logToConsole(logMessage);
-								if(fileOutput)
-								{
-									logToFile(logMessage);
-								}
-							}
-							break;		
-			case WARNING:	if(level.equals(LogLevel.ALL) || level.equals(LogLevel.WARNING) || level.equals(LogLevel.NORMAL))	
-							{
-								logToConsole(logMessage);
-								if(fileOutput)
-								{
-									logToFile(logMessage);
-								}
-							}
-							break;		
-			case ERROR:		if(level.equals(LogLevel.ALL) || level.equals(LogLevel.ERROR) || level.equals(LogLevel.NORMAL))	
-							{
-								logErrorToConsole(logMessage);
-								if(fileOutput)
-								{
-									logToFile(logMessage);
-								}
-							}
-							break;	
-			default:		break;							
-		}	
+			if(logLevel.equals(LogLevel.ERROR))
+			{		
+				logErrorToConsole(logMessage);				
+			}
+			else
+			{
+				logToConsole(logMessage);
+			}
+			
+			if(fileOutput)
+			{
+				logToFile(logMessage);
+			}
+		}
 	}
 	
 	private static String createLogMessage(LogLevel logLevel, String message)
