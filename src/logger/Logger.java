@@ -26,24 +26,24 @@ public class Logger
 		log(LogLevel.INFO, appName + " - v" + versionName + " - (versioncode: " + versionCode + ") from " + versionDate + ")");
 	}
 	
-	public static void info(String message)
+	public static void info(Object message)
 	{
-		log(LogLevel.INFO, message);
+		log(LogLevel.INFO, message.toString());
 	}
 	
-	public static void debug(String message)
+	public static void debug(Object message)
 	{
-		log(LogLevel.DEBUG, message);
+		log(LogLevel.DEBUG, message.toString());
 	}
 	
-	public static void warning(String message)
+	public static void warning(Object message)
 	{
-		log(LogLevel.WARNING, message);
+		log(LogLevel.WARNING, message.toString());
 	}
 	
-	public static void error(String message)
+	public static void error(Object message)
 	{
-		log(LogLevel.ERROR, message);
+		log(LogLevel.ERROR, message.toString());
 	}
 	
 	public static void error(Exception exception)
