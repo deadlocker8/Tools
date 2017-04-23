@@ -8,7 +8,7 @@ import java.util.Date;
 import javafx.scene.paint.Color;
 
 /**
- * stellt Methoden zur Konvertierung von Einheiten zur Verfügung
+ * stellt Methoden zur Konvertierung von Einheiten zur Verfï¿½gung
  * 
  * @author Robert
  *
@@ -78,7 +78,7 @@ public class ConvertTo
 	}
 
 	/**
-	 * Konvertiert einen Timestamp zurück in Millisekunden
+	 * Konvertiert einen Timestamp zurï¿½ck in Millisekunden
 	 * 
 	 * @param time
 	 *            String - Timestamp
@@ -158,5 +158,20 @@ public class ConvertTo
 		{
 			return Color.WHITE;
 		}
+	}
+	
+	/**
+	 * converts given String to BASE58
+	 * @param text - String to convert
+	 * @return String - converted String
+	 */
+	public static String toBase58(String text)
+	{			
+		text = text.replace("O", RandomCreations.geberateRandomBase58Char());
+		text = text.replace("0", RandomCreations.geberateRandomBase58Char());
+		text = text.replace("l", RandomCreations.geberateRandomBase58Char());
+		text = text.replace("I", RandomCreations.geberateRandomBase58Char());
+		
+		return text;		
 	}
 }
