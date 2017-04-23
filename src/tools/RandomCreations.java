@@ -4,6 +4,7 @@ import java.util.Random;
 
 /**
  * diverse Zufallsgenerierungen
+ * 
  * @author Robert
  *
  */
@@ -11,23 +12,27 @@ public class RandomCreations
 {
 	/**
 	 * generiert einen zufälligen hexadezimalen Farbcode
+	 * 
 	 * @return String - Hexcode
 	 */
 	public static String generateRandomHexColor()
 	{
 		Random rand = new Random();
-		
+
 		int r = rand.nextInt(255);
 		int g = rand.nextInt(255);
 		int b = rand.nextInt(255);
-		
-		return "#" + String.format("%02X", r) + String.format("%02X", g) + String.format("%02X", b);		
+
+		return "#" + String.format("%02X", r) + String.format("%02X", g) + String.format("%02X", b);
 	}
-	
+
 	/**
 	 * generates a random uppercase String with length chars
-	 * @param length - number of chars
-	 * @param enableDigits - allow digits
+	 * 
+	 * @param length
+	 *            - number of chars
+	 * @param enableDigits
+	 *            - allow digits
 	 * @return String - random String
 	 */
 	public static String generateRandomUppercaseString(int length, boolean enableDigits)
@@ -37,14 +42,17 @@ public class RandomCreations
 		{
 			sb.append(generateRandomUppercaseChar(enableDigits));
 		}
-		
+
 		return sb.toString();
 	}
-	
+
 	/**
 	 * generates a random mixed case String with length chars
-	 * @param length - number of chars
-	 * @param enableDigits - allow digits
+	 * 
+	 * @param length
+	 *            - number of chars
+	 * @param enableDigits
+	 *            - allow digits
 	 * @return String - random String
 	 */
 	public static String generateRandomMixedCaseString(int length, boolean enableDigits)
@@ -62,13 +70,15 @@ public class RandomCreations
 				sb.append(generateRandomUppercaseChar(enableDigits));
 			}
 		}
-		
+
 		return sb.toString();
 	}
-	
+
 	/**
-	 * generates a random uppercase  char	
-	 * @param enableDigits - allow digits
+	 * generates a random uppercase char
+	 * 
+	 * @param enableDigits
+	 *            - allow digits
 	 * @return String - random char
 	 */
 	public static String generateRandomUppercaseChar(boolean enableDigits)
@@ -82,24 +92,46 @@ public class RandomCreations
 		{
 			alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		}
-	    int N = alphabet.length();
+		int N = alphabet.length();
 
-	    Random r = new Random();
-	   
-	    return String.valueOf(alphabet.charAt(r.nextInt(N)));		
+		Random r = new Random();
+
+		return String.valueOf(alphabet.charAt(r.nextInt(N)));
 	}
-		
+
 	/**
-	 * generates a random BASE58 char	
+	 * generates a random BASE58 char
+	 * 
 	 * @return String - random char
 	 */
-	public static String geberateRandomBase58Char()
+	public static String generateRandomBase58Char(boolean enableDigits, BASE58Type type)
 	{
-		final String alphabet = "123456789abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
-	    final int N = alphabet.length();
+		String alphabet = "";
 
-	    Random r = new Random();
-	   
-	    return String.valueOf(alphabet.charAt(r.nextInt(N)));
+		switch(type)
+		{
+			case LOWER:
+				alphabet = "abcdefghijkmnopqrstuvwxyz";
+				break;
+			case MIXED:
+				alphabet = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ";
+				break;
+			case UPPER:
+				alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ";
+				break;
+			default:
+				break;
+		}
+	
+		if(enableDigits)
+		{
+			alphabet += "123456789";
+		}
+		int N = alphabet.length();
+
+		Random r = new Random();
+
+		return String.valueOf(alphabet.charAt(r.nextInt(N)));
 	}
+
 }

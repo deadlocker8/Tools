@@ -165,12 +165,25 @@ public class ConvertTo
 	 * @param text - String to convert
 	 * @return String - converted String
 	 */
-	public static String toBase58(String text)
-	{			
-		text = text.replace("O", RandomCreations.geberateRandomBase58Char());
-		text = text.replace("0", RandomCreations.geberateRandomBase58Char());
-		text = text.replace("l", RandomCreations.geberateRandomBase58Char());
-		text = text.replace("I", RandomCreations.geberateRandomBase58Char());
+	public static String toBase58(String text, boolean enableDigits, BASE58Type type)
+	{	
+		switch(type)
+		{
+			case LOWER:
+				text = text.toLowerCase();
+				break;			
+			case UPPER:
+				text = text.toUpperCase();
+				break;
+			default:
+				break;
+			
+		}
+		
+		text = text.replace("O", RandomCreations.generateRandomBase58Char(enableDigits, type));
+		text = text.replace("0", RandomCreations.generateRandomBase58Char(enableDigits, type));
+		text = text.replace("l", RandomCreations.generateRandomBase58Char(enableDigits, type));
+		text = text.replace("I", RandomCreations.generateRandomBase58Char(enableDigits, type));	
 		
 		return text;		
 	}
