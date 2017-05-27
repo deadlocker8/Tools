@@ -8,7 +8,7 @@ import java.util.Date;
 import javafx.scene.paint.Color;
 
 /**
- * stellt Methoden zur Konvertierung von Einheiten zur Verf�gung
+ * stellt Methoden zur Konvertierung von Einheiten zur Verfügung
  * 
  * @author Robert
  *
@@ -42,7 +42,7 @@ public class ConvertTo
 	{
 		long sek = seconds % 60;
 		long min = seconds / 60 % 60;
-		long hour = (seconds / (60 * 60)) % 24;
+		long hour = seconds / (60 * 60);
 
 		return hour + " h " + min + " min " + sek + " sek";
 	}
@@ -78,7 +78,7 @@ public class ConvertTo
 	}
 
 	/**
-	 * Konvertiert einen Timestamp zur�ck in Millisekunden
+	 * Konvertiert einen Timestamp zurück in Millisekunden
 	 * 
 	 * @param time
 	 *            String - Timestamp
