@@ -4,11 +4,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import tools.AlertGenerator;
 import tools.Worker;
 
 public class Controller
@@ -33,13 +32,6 @@ public class Controller
 	
 	public void about()
 	{
-		Alert alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Über " + bundle.getString("app.name"));
-		alert.setHeaderText(bundle.getString("app.name"));
-		alert.setContentText("Version:     " + bundle.getString("version.name") + "\r\nDatum:      " + bundle.getString("version.date") + "\r\nAutor:        Robert Goldmann\r\n");
-		Stage dialogStage = (Stage)alert.getDialogPane().getScene().getWindow();
-		dialogStage.getIcons().add(icon);
-		dialogStage.centerOnScreen();
-		alert.showAndWait();
+		AlertGenerator.showAboutAlert(bundle.getString("app.name"), bundle.getString("version.name"), bundle.getString("version.code"), bundle.getString("version.date"), bundle.getString("author"), icon, stage, null, false);
 	}
 }
