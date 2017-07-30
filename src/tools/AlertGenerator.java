@@ -22,7 +22,7 @@ public class AlertGenerator
 
 	public static void showAboutAlert(String appName, String versionName, String versionCode, String versionDate, String authors, Image icon, Window owner, String hexCodeColor, boolean centerOnScreen)
 	{
-		String content = "Version:     " + versionName + " (" + versionCode + ")\r\nDate:         " + versionDate + "\r\nAuthors:     " + authors + "\r\n";
+		String content = "Version:    " + versionName + " (" + versionCode + ")\r\nDate:         " + versionDate + "\r\nAuthors:    " + authors + "\r\n";
 
 		show(AlertType.INFORMATION, "About " + appName, appName, content, icon, owner, hexCodeColor, centerOnScreen);
 	}
