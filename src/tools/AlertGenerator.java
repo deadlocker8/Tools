@@ -26,14 +26,14 @@ public class AlertGenerator
 
 		show(AlertType.INFORMATION, "About " + appName, appName, content, icon, owner, hexCodeColor, centerOnScreen);
 	}
-	
+
 	public static void showAboutAlertWithCredits(String appName, String versionName, String versionCode, String versionDate, String authors, ArrayList<String> creditLines, Image icon, Window owner, String hexCodeColor, boolean centerOnScreen)
 	{
 		String content = "Version:     " + versionName + " (" + versionCode + ")\r\nDate:         " + versionDate + "\r\nAuthors:    " + authors + "\r\n";
-		content +=  "\r\nCredits:\r\n";
+		content += "\r\nCredits:\r\n";
 		for(String line : creditLines)
 		{
-			content +=  line + "\r\n";
+			content += line + "\r\n";
 		}
 
 		show(AlertType.INFORMATION, "About " + appName, appName, content, icon, owner, hexCodeColor, centerOnScreen);
