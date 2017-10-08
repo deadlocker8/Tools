@@ -21,11 +21,17 @@ public class Logger
 	private static File folder;
 	private static PrintStream outStream;
 	private static PrintStream errorStream;
+	private static FileOutputMode fileOutputMode;
 	
 	
 	public static LogLevel getLevel()
 	{
 		return level;
+	}
+	
+	public static File getFolder()
+	{
+		return folder;
 	}
 	
 	public static void setLevel(LogLevel newLevel)
@@ -120,6 +126,7 @@ public class Logger
 		Logger.folder = folder;	
 		Logger.outStream = outStream;
 		Logger.errorStream = errorStream;
+		Logger.fileOutputMode = fileOutputMode;
 		
 		File outLog = new File(folder.getAbsolutePath() , "out.log");
 		File errorLog = new File(folder.getAbsolutePath() , "error.log");
@@ -168,8 +175,33 @@ public class Logger
 		catch(IOException e)
 		{
 			error("Can't delete log file(s)");
+			e.printStackTrace();
 		}	
-	}	
+	}
+	
+	public static void clearLogFile()
+	{		
+		disableFileOutput();
+		try
+		{
+			File outLog = new File(folder.getAbsolutePath() , "/out.log");
+			if(outLog.exists())
+			{
+				Files.write(outLog.toPath(), "".getBytes());
+			}
+			File errorLog = new File(folder.getAbsolutePath() , "/error.log");
+			if(errorLog.exists())
+			{
+				Files.write(errorLog.toPath(), "".getBytes());
+			}
+		}
+		catch(IOException e)
+		{
+			error("Can't clear log file(s)");
+			e.printStackTrace();
+		}	
+		enableFileOutput(folder, outStream, errorStream, fileOutputMode);		
+	}
 	
 	private static String getStringFromException(Exception e)
 	{
