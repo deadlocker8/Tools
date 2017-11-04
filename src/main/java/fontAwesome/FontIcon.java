@@ -27,7 +27,14 @@ public class FontIcon extends Label
 	private int size = 14;
 	private Font font;
 	private Color color;
-
+	
+	public FontIcon(FontIconType type, int size, Color color)
+	{
+		this(type);
+		setSize(size);
+		setColor(color);
+	}
+	
 	public FontIcon(FontIconType type)
 	{
 		this(new FontIconType[] { type });
@@ -50,7 +57,6 @@ public class FontIcon extends Label
 		loadFont();
 		getStyleClass().remove("label");
 		getStyleClass().add(STYLE_CLASS);
-
 	}
 
 	public void setIcons(FontIconType... types)
