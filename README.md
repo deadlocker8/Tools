@@ -1,5 +1,3 @@
 # Tools
 
-useful classes for Java development
-
-[Javadoc](http://deadlocker.no-ip.org/javadoc/ "Javadoc")
+useful classes for Java development (used in several projects)
