@@ -11,7 +11,7 @@ public class FontIcon extends Label
 {
 	private static Map<String, Map<Integer, Font>> fonts;
 	public static final String STYLE_CLASS = "fonticon";
-	private static String FONT_FILE = "fontAwesome/FontAwesome.otf";
+	private static String FONT_FILE = "fontAwesome/fontawesome-webfont.ttf";
 	private String fontFile = FONT_FILE;
 
 	static
