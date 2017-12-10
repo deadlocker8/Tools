@@ -8,8 +8,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Worker für das Ausführen von Anweisungen auf anderen Threads
- * @author Robert *
+ * Worker fÃ¼r das AusfÃ¼hren von Anweisungen auf anderen Threads
  */
 public class Worker
 {
@@ -64,7 +63,7 @@ public class Worker
 	}
 
 	/**
-	 * führt die Anweisungen in anderen Threads aus
+	 * fÃ¼hrt die Anweisungen in anderen Threads aus
 	 * @param runnable
 	 * @return
 	 */
@@ -83,7 +82,10 @@ public class Worker
 	 */
 	public static void shutdown()
 	{
-		executorService.shutdown();
+		if(executorService != null)
+		{
+			executorService.shutdown();
+		}		
 		executorService = null;
 	}
 }
